@@ -8,6 +8,7 @@ RUN apt update && \
     wget \
     python3.11 \
     python3-pip \
+    python3-dev \
     build-essential \
     && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
