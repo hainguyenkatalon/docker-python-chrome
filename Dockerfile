@@ -16,3 +16,6 @@ RUN apt update && \
     && \
     pip3 install --upgrade pip && \
     rm -rf /var/lib/apt/lists/*
+
+COPY wrap_chromium_binary /opt/bin/wrap_chromium_binary
+RUN /opt/bin/wrap_chromium_binary
