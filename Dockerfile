@@ -7,9 +7,9 @@ RUN apt update && \
     apt install -y --no-install-recommends \
     ca-certificates \
     wget \
-    python3.11 \
+    python3 \
     python3-pip \
-    python3.11-dev \
+    python3-dev \
     build-essential \
     chromium-browser \
     chromium-chromedriver \
