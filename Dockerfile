@@ -3,7 +3,6 @@ FROM seleniarm/standalone-chromium:114.0
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN sudo apt update && \
-    sudo apt upgrade -y && \
     sudo apt install -y --no-install-recommends \
     ca-certificates \
     wget \
