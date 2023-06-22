@@ -12,6 +12,7 @@ RUN apt update && \
     python3.11-dev \
     build-essential \
     chromium-browser \
+    chromium-chromedriver \
     && \
     pip3 install --upgrade pip && \
     rm -rf /var/lib/apt/lists/*
