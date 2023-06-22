@@ -2,7 +2,7 @@ FROM seleniarm/standalone-chromium:114.0
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && \
+RUN sudo apt update && \
     apt install -y --no-install-recommends \
     ca-certificates \
     wget \
@@ -11,5 +11,5 @@ RUN apt update && \
     python3-dev \
     build-essential \
     && \
-    pip3 install --upgrade pip && \
-    rm -rf /var/lib/apt/lists/*
+    sudo pip3 install --upgrade pip && \
+    sudo rm -rf /var/lib/apt/lists/*
