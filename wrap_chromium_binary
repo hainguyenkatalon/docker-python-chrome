@@ -1,5 +1,7 @@
 #!/bin/bash
 
+WRAPPER_PATH=/usr/bin/chromium
+
 cat > "$WRAPPER_PATH" <<_EOF
 #!/bin/bash
 # Note: exec -a below is a bashism.
