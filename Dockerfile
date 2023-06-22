@@ -1,13 +1,17 @@
-FROM seleniarm/standalone-chromium:114.0
+FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN sudo apt update && \
-    sudo apt install -y --no-install-recommends \
-    python3 \
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y --no-install-recommends \
+    ca-certificates \
+    wget \
+    python3.11 \
     python3-pip \
     python3-dev \
     build-essential \
+    chromium-browser \
     && \
-    sudo pip3 install --upgrade pip && \
-    sudo rm -rf /var/lib/apt/lists/*
+    pip3 install --upgrade pip && \
+    rm -rf /var/lib/apt/lists/*
