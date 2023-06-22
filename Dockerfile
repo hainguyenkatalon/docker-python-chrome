@@ -11,8 +11,10 @@ RUN apt update && \
     python3-pip \
     python3-dev \
     build-essential \
-    chromium-browser \
     chromium-chromedriver \
+    snapd \
+    && \
+    snap install chromium \
     && \
     pip3 install --upgrade pip && \
     rm -rf /var/lib/apt/lists/*
