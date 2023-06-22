@@ -9,7 +9,7 @@ RUN apt update && \
     wget \
     python3.11 \
     python3-pip \
-    python3-dev \
+    python3.11-dev \
     build-essential \
     chromium-browser \
     && \
