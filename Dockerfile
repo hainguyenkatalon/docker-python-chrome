@@ -1,21 +1,11 @@
-FROM ubuntu:22.04
+FROM seleniarm/standalone-chromium:114.0
 
-ARG DEBIAN_FRONTEND=noninteractive
-
-RUN apt update && \
-    apt upgrade -y && \
-    apt install -y --no-install-recommends \
-    ca-certificates \
-    wget \
-    python3 \
-    python3-pip \
-    python3-dev \
-    build-essential \
-    chromium-browser \
-    chromium-chromedriver \
-    && \
-    pip3 install --upgrade pip && \
-    rm -rf /var/lib/apt/lists/*
-
-COPY wrap_chromium_binary /opt/bin/wrap_chromium_binary
-RUN /opt/bin/wrap_chromium_binary
+RUN sudo apt update && \
+    sudo apt install -y --no-install-recommends \
+                zlib1g-dev libncurses5-dev libgdbm-dev \
+                libnss3-dev libssl-dev libreadline-dev \
+                libffi-dev libsqlite3-dev libbz2-dev \
+                libseccomp-dev libsystemd-dev libtool \
+                libudev-dev libyajl-dev  awscli \
+                python3 python3-pip python3.11-dev python3-venv libpq-dev && \
+    sudo rm -rf /var/lib/apt/lists/*
