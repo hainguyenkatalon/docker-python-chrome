@@ -32,21 +32,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push arm64
+      - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./Dockerfile.arm64
-          platforms: linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-      - name: Build and push x64
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile.amd64
-          platforms: linux/amd64
+          file: ./Dockerfile.seleniarm
+          platforms: linux/arm64,linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
