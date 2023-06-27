@@ -11,6 +11,7 @@ RUN echo "deb http://deb.debian.org/debian/ sid main" >> /etc/apt/sources.list
 # Includes minimal runtime used for executing non GUI Java programs
 #========================
 RUN apt-get -qqy update \
+  && apt-get -qqy upgrade \
   && apt-get -qqy --no-install-recommends install \
     acl \
     bzip2 \
@@ -47,7 +48,6 @@ ENV LANG ${LANGUAGE}
 # Layer size: small: ~9 MB MB (with --no-install-recommends)
 RUN apt-get -qqy update \
   && apt-get -qqy --no-install-recommends install \
-    #language-pack-en \
     tzdata \
     locales \
   && locale-gen ${LANGUAGE} \
@@ -87,7 +87,6 @@ RUN apt-get -qqy update \
     fonts-ipafont-gothic \
     fonts-wqy-zenhei \
     fonts-tlwg-loma-otf \
-    # ttf-ubuntu-font-family \
     fonts-noto-color-emoji \
   && rm -rf /var/lib/apt/lists/* \
   && apt-get -qyy clean
@@ -106,11 +105,6 @@ RUN chmod -R 775 ${HOME} \
 
 # Install Chromium
 RUN apt-get update -qqy \
-  # && apt-get -qqy install chromium=89.0.4389.82-1 \
-  # && apt-get -qqy install chromium=90.0.4430.212-1 \
-  # && apt-get -qqy install chromium=93.0.4577.82-1 \
-  # && apt-get -qqy install chromium=97.0.4692.71-0.1 \
-  # && apt-get -qqy install chromium=98.0.4758.102-1+b1 \
   && apt-get -qqy install chromium \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
